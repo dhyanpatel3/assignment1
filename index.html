@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 style="text-align: center; color: green;"  >MongoDB command</h1>
+
+    <br><br><br>
+  <div style="text-align: center; background-color: wheat; border-radius: 15%;" >
+
+  <br><br><br>
+    <code >
+      1.
+      db.movies.find({$and:[{runtime:{$gt:150}},{rating:{$gt:8.5}},{year:{$gte:2000,$lte:2015}},{$or:[{boxOffice:{$lt:500}},
+      {boxOffice:{$gt:1000}}]}]})
+    </code>
+    <br /><br /><br />
+    <code>
+      2. db.movies.find({$and:[{director:"Christopher Nolan"},{isOscarWinner:
+      true },{boxOffice:{$gt:700}},{streamingOn:"Netflix"}]})
+    </code>
+    <br /><br /><br />
+    <code>
+      3.
+      db.movies.find({"specialFeatures.behindTheScenes":true,"specialFeatures.deletedScenes":true})
+    </code>
+    <br /><br /><br />
+    <code>
+      4. db.movies.find({cast:{$in:["Carrie-Anne Moss","Morgan
+      Freeman"]},languages:{$exists:true,$not:{$size:0}},streamingOn:{$exists:true,$not:{$size:
+      1}}})
+    </code>
+    <br /><br /><br />
+    <code>
+      5. db.movies.updateOne({title:"Inception"},
+      {$addToSet:{languages:"Chinese"}})
+    </code>
+    <br /><br /><br />
+
+    <code>
+      6. db.movies.updateMany({director:"Christopher
+      Nolan"},{$addToSet:{cast:"Michael Caine"}})
+    </code>
+    <br /><br /><br />
+
+    <code>
+      7.
+      db.movies.updateMany({runtime:{$gt:140}},{$addToSet:{streamingOn:"Disney+"}})
+    </code>
+    <br /><br /><br />
+
+    <code>
+      8.
+      db.movies.find({$and:[{genre:{$size:2}},{boxOffice:{$exists:true}},{specialFeatures:{$exists:false}}]})
+    </code>
+    <br /><br /><br />
+
+</div>
+  </body>
+</html>
